@@ -41,4 +41,23 @@ public class employeeService {
     public void addEmployee(Employee e) {
         list.add(e);
     }
+
+    public void updateEmployee(Long givenId, Employee e) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getEmployeeId() == givenId) {
+                list.get(i).setEmployeeId(e.getEmployeeId());
+                list.get(i).setName(e.getName());
+                list.get(i).setSalary(e.getSalary());
+            }
+        }
+    }
+
+    public void deleteEmployee(long givenId) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getEmployeeId() == givenId) {
+                list.remove(i);
+                break;
+            }
+        }
+    }
 }
